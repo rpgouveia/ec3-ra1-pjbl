@@ -134,6 +134,21 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
+# Vite specific
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
