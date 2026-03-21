@@ -8,6 +8,6 @@ export const validateId = (request: Request, response: Response, next: NextFunct
         return;
     }
 
-    request.body.validatedId = id;
+    response.locals.id = id;
     next();
 };

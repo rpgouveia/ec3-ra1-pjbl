@@ -12,7 +12,7 @@ export const getAll = async (request: Request, response: Response) => {
 
 export const getById = async (request: Request, response: Response) => {
     try {
-        const book = await booksService.findById(request.body.validatedId);
+        const book = await booksService.findById(response.locals.id);
 
         if (!book) {
             response.status(404).json({ error: "Livro não encontrado." });
@@ -43,7 +43,7 @@ export const create = async (request: Request, response: Response) => {
 
 export const update = async (request: Request, response: Response) => {
     try {
-        const updated = await booksService.update(request.body.validatedId, request.body);
+        const updated = await booksService.update(response.locals.id, request.body);
 
         if (!updated) {
             response.status(404).json({ error: "Livro não encontrado." });
@@ -58,7 +58,7 @@ export const update = async (request: Request, response: Response) => {
 
 export const remove = async (request: Request, response: Response) => {
     try {
-        const removed = await booksService.remove(request.body.validatedId);
+        const removed = await booksService.remove(response.locals.id);
 
         if (!removed) {
             response.status(404).json({ error: "Livro não encontrado." });
