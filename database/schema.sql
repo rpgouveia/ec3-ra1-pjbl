@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS rpg_shelf;
 CREATE DATABASE IF NOT EXISTS rpg_shelf;
 USE rpg_shelf;
 
