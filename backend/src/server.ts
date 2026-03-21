@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import database from "./connection";
+import booksRoutes from "./routes/books";
 
 dotenv.config();
 
@@ -10,6 +11,12 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (_req, res) => {
+    res.json({ message: "RPG Shelf API está rodando." });
+});
+
+app.use("/books", booksRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor está rodando na porta ${PORT}`);
