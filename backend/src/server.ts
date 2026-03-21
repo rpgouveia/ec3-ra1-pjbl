@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import pool from "./connection";
 
 dotenv.config();
 
@@ -18,3 +19,13 @@ app.get("/", (request, response) => {
 app.listen(PORT, () => {
     console.log(`Servidor está rodando na porta ${PORT}`);
 });
+
+// Connection test
+pool.getConnection()
+    .then((connection) => {
+        console.log("Conexão com o banco de dados estabelecida com sucesso.");
+        connection.release();
+    })
+    .catch((error) => {
+        console.error("Erro ao conectar ao banco de dados:", error);
+    });
