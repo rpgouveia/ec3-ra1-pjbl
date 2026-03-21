@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import pool from "./connection";
+import database from "./connection";
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ app.listen(PORT, () => {
 });
 
 // Connection test
-pool.getConnection()
+database.getConnection()
     .then((connection) => {
         console.log("Conexão com o banco de dados estabelecida com sucesso.");
         connection.release();
