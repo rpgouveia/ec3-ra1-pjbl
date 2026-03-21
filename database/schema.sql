@@ -15,4 +15,7 @@ CREATE TABLE IF NOT EXISTS books (
 INSERT INTO books (title, `system`, author, `edition`, `status`, notes) VALUES
   ('Player''s Handbook', 'D&D 5e', 'Wizards of the Coast', '5ª Edição', 'Tenho', 'Livro base essencial'),
   ('Tormenta20', 'Tormenta', 'Equipe Jambô', '1ª Edição', 'Lendo', 'Sistema nacional muito bom'),
-  ('Call of Cthulhu', 'CoC', 'Chaosium', '7ª Edição', 'Quero', 'Horror cósmico clássico');
+  ('Call of Cthulhu', 'CoC', 'Chaosium', '7ª Edição', 'Quero', 'Horror cósmico clássico'),
+  ('Pathfinder RPG', 'Pathfinder', 'Paizo', '2ª Edição', 'Tenho', 'Sistema de fantasia detalhado'),
+  ('Shadowrun: Anarchy', 'Shadowrun', 'Catalyst Game Labs', '1ª Edição', 'Lido', 'Cyberpunk com magia'),
+  ('GURPS Basic Set', 'GURPS', 'Steve Jackson Games', '4ª Edição', 'Quero', 'Sistema genérico e flexível');
