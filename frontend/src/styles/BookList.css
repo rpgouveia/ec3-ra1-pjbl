@@ -1,0 +1,182 @@
+.booklist {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.booklist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.booklist-header h1 {
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.booklist-add {
+    padding: 10px 20px;
+    background: #e0e0e0;
+    color: #0f0f0f;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.booklist-add:hover {
+    background: #ffffff;
+}
+
+.booklist-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.booklist-search {
+    width: 100%;
+    padding: 10px 16px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.booklist-search:focus {
+    border-color: #555;
+}
+
+.booklist-options {
+    display: flex;
+    gap: 12px;
+}
+
+.booklist-options select {
+    padding: 8px 12px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.booklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.book-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.2s;
+}
+
+.book-card:hover {
+    border-color: #555;
+}
+
+.book-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.status-quero {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+}
+
+.status-tenho {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.status-lendo {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+}
+
+.status-lido {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.book-title {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.book-system {
+    font-size: 14px;
+    color: #888;
+}
+
+.book-author {
+    font-size: 13px;
+    color: #666;
+}
+
+.booklist-empty {
+    text-align: center;
+    color: #666;
+    padding: 48px;
+}
+
+.booklist-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.booklist-pagination button {
+    padding: 8px 16px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.booklist-pagination button:hover:not(:disabled) {
+    border-color: #555;
+}
+
+.booklist-pagination button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.booklist-pagination span {
+    font-size: 14px;
+    color: #888;
+}
+
+.error {
+    color: #ef4444;
+    text-align: center;
+}
