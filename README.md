@@ -43,7 +43,7 @@ EC3-RA1-PJBL/
 ├── database/
 │   └── schema.sql
 ├── docs/
-│   ├── der.png
+│   ├── erd.png
 │   ├── ec3-ra1-pjbl.pdf
 │   └── planejamento-ec3.jpeg
 ├── frontend/
