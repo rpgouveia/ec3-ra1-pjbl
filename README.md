@@ -73,9 +73,25 @@ EC3-RA1-PJBL/
 
 ## Pré-requisitos
 
-- Node.js (v18 ou superior)
-- MySQL (v8 ou superior)
+- Node.js v24.12.0
+- MySQL 8.0.45
 - npm
+
+## Tecnologias e Versões
+
+### Frontend
+- React 19.2.4
+- TypeScript 5.9.3
+- Vite 8.0.1
+- React Router 7.13.1
+- Axios 1.13.6
+- React Toastify 11.0.5
+
+### Backend
+- Express 5.2.1
+- mysql2 3.20.0
+- dotenv 17.3.1
+- TypeScript 5.9.3
 
 ## Como Rodar o Projeto
 
