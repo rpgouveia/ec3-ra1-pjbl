@@ -60,8 +60,13 @@ export default function BookDetails() {
                     </div>
 
                     <div className="bookdetails-field">
+                        <span className="field-label">Editora</span>
+                        <span className="field-value">{book.publisher}</span>
+                    </div>
+
+                    <div className="bookdetails-field">
                         <span className="field-label">Autor</span>
-                        <span className="field-value">{book.author}</span>
+                        <span className="field-value">{book.author || "—"}</span>
                     </div>
 
                     <div className="bookdetails-field">

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { getBooks } from "../services/api";
 import type { Book } from "../types/book";
-import { toast } from "react-toastify";
 import "../styles/BookList.css";
 
 const ITEMS_PER_PAGE = 6;
@@ -21,8 +21,7 @@ export default function BookList() {
             try {
                 const response = await getBooks();
                 setBooks(response.data);
-            } catch (err) {
-                console.error(err);
+            } catch {
                 toast.error("Erro ao carregar livros.");
             } finally {
                 setLoading(false);
@@ -32,7 +31,6 @@ export default function BookList() {
         fetchBooks();
     }, []);
 
-    // Reseta a página quando muda filtro ou busca
     useEffect(() => {
         setCurrentPage(1);
     }, [search, statusFilter, sortOrder]);
@@ -113,7 +111,7 @@ export default function BookList() {
                             </span>
                             <h2 className="book-title">{book.title}</h2>
                             <p className="book-system">{book.system}</p>
-                            <p className="book-author">{book.author}</p>
+                            <p className="book-publisher">{book.publisher}</p>
                         </Link>
                     ))}
                 </div>

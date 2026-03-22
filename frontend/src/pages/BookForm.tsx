@@ -10,6 +10,7 @@ const STATUS_OPTIONS = ["Quero", "Tenho", "Lendo", "Lido"];
 const emptyBook: Book = {
     title: "",
     system: "",
+    publisher: "",
     author: "",
     edition: "",
     status: "Quero",
@@ -47,7 +48,7 @@ export default function BookForm() {
 
         if (!book.title.trim()) errors.title = "Título é obrigatório.";
         if (!book.system.trim()) errors.system = "Sistema é obrigatório.";
-        if (!book.author.trim()) errors.author = "Autor é obrigatório.";
+        if (!book.publisher.trim()) errors.publisher = "Editora é obrigatória.";
 
         setFieldErrors(errors);
         return Object.keys(errors).length === 0;
@@ -112,15 +113,26 @@ export default function BookForm() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="author">Autor *</label>
+                    <label htmlFor="publisher">Editora *</label>
+                    <input
+                        id="publisher"
+                        name="publisher"
+                        value={book.publisher}
+                        onChange={handleChange}
+                        placeholder="Ex: Wizards of the Coast"
+                    />
+                    {fieldErrors.publisher && <span className="field-error">{fieldErrors.publisher}</span>}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="author">Autor</label>
                     <input
                         id="author"
                         name="author"
                         value={book.author}
                         onChange={handleChange}
-                        placeholder="Ex: Wizards of the Coast"
+                        placeholder="Ex: Jeremy Crawford"
                     />
-                    {fieldErrors.author && <span className="field-error">{fieldErrors.author}</span>}
                 </div>
 
                 <div className="form-row">

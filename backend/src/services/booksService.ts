@@ -18,11 +18,12 @@ export const findById = async (id: number) => {
 
 export const create = async (book: Book) => {
     const [result] = await database.query<ResultSetHeader>(
-        "INSERT INTO books (title, `system`, author, `edition`, `status`, notes) VALUES (?, ?, ?, ?, ?, ?)",
+        "INSERT INTO books (title, `system`, publisher, author, `edition`, `status`, notes) VALUES (?, ?, ?, ?, ?, ?, ?)",
         [
             book.title, 
             book.system, 
-            book.author, 
+            book.publisher, 
+            book.author || null, 
             book.edition || null, 
             book.status || "Quero", 
             book.notes || null
@@ -33,11 +34,12 @@ export const create = async (book: Book) => {
 
 export const update = async (id: number, book: Book) => {
     const [result] = await database.query<ResultSetHeader>(
-        "UPDATE books SET title = ?, `system` = ?, author = ?, `edition` = ?, `status` = ?, notes = ? WHERE id = ?",
+        "UPDATE books SET title = ?, `system` = ?, publisher = ?, author = ?, `edition` = ?, `status` = ?, notes = ? WHERE id = ?",
         [
             book.title, 
             book.system, 
-            book.author, 
+            book.publisher,
+            book.author || null, 
             book.edition || null, 
             book.status || null, 
             book.notes || null, 

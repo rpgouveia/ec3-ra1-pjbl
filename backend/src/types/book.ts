@@ -2,7 +2,8 @@ export interface Book {
     id?: number;
     title: string;
     system: string;
-    author: string;
+    publisher: string;
+    author?: string;
     edition?: string;
     status?: "Quero" | "Tenho" | "Lendo" | "Lido";
     notes?: string;
