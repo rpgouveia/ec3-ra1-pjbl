@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { getBookById, createBook, updateBook } from "../services/api";
 import type { Book } from "../types/book";
 import "../styles/BookForm.css";
@@ -21,8 +22,6 @@ export default function BookForm() {
 
     const [book, setBook] = useState<Book>(emptyBook);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
     useEffect(() => {
@@ -33,7 +32,7 @@ export default function BookForm() {
                     const response = await getBookById(Number(id));
                     setBook(response.data);
                 } catch {
-                    setError("Erro ao carregar livro.");
+                    toast.error("Erro ao carregar livro.");
                 } finally {
                     setLoading(false);
                 }
@@ -60,27 +59,24 @@ export default function BookForm() {
         const { name, value } = e.target;
         setBook((prev) => ({ ...prev, [name]: value }));
         setFieldErrors((prev) => ({ ...prev, [name]: "" }));
-        setSuccess("");
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError("");
-        setSuccess("");
 
         if (!validate()) return;
 
         try {
             if (isEditing) {
                 await updateBook(Number(id), book);
-                setSuccess("Livro atualizado com sucesso!");
+                toast.success("Livro atualizado com sucesso!");
             } else {
                 await createBook(book);
-                setSuccess("Livro cadastrado com sucesso!");
+                toast.success("Livro cadastrado com sucesso!");
                 setBook(emptyBook);
             }
         } catch {
-            setError("Erro ao salvar livro.");
+            toast.error("Erro ao salvar livro.");
         }
     };
 
@@ -89,9 +85,6 @@ export default function BookForm() {
     return (
         <main className="bookform">
             <h1>{isEditing ? "Editar Livro" : "Cadastrar Livro"}</h1>
-
-            {error && <p className="form-error">{error}</p>}
-            {success && <p className="form-success">{success}</p>}
 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { getBookById, deleteBook } from "../services/api";
 import type { Book } from "../types/book";
 import "../styles/BookDetails.css";
@@ -10,7 +11,6 @@ export default function BookDetails() {
 
     const [book, setBook] = useState<Book | null>(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
     const [showConfirm, setShowConfirm] = useState(false);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function BookDetails() {
                 const response = await getBookById(Number(id));
                 setBook(response.data);
             } catch {
-                setError("Erro ao carregar livro.");
+                toast.error("Erro ao carregar livro.");
             } finally {
                 setLoading(false);
             }
@@ -31,15 +31,15 @@ export default function BookDetails() {
     const handleDelete = async () => {
         try {
             await deleteBook(Number(id));
+            toast.success("Livro excluído com sucesso!");
             navigate("/books");
         } catch {
-            setError("Erro ao excluir livro.");
+            toast.error("Erro ao excluir livro.");
             setShowConfirm(false);
         }
     };
 
     if (loading) return <main className="bookdetails"><p>Carregando...</p></main>;
-    if (error) return <main className="bookdetails"><p className="error">{error}</p></main>;
     if (!book) return <main className="bookdetails"><p>Livro não encontrado.</p></main>;
 
     return (

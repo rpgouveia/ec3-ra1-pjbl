@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getBooks } from "../services/api";
 import type { Book } from "../types/book";
+import { toast } from "react-toastify";
 import "../styles/BookList.css";
 
 const ITEMS_PER_PAGE = 6;
@@ -14,7 +15,6 @@ export default function BookList() {
     const [sortOrder, setSortOrder] = useState<"desc" | "asc">("desc");
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -23,7 +23,7 @@ export default function BookList() {
                 setBooks(response.data);
             } catch (err) {
                 console.error(err);
-                setError("Erro ao carregar livros.");
+                toast.error("Erro ao carregar livros.");
             } finally {
                 setLoading(false);
             }
@@ -59,7 +59,6 @@ export default function BookList() {
     );
 
     if (loading) return <main className="booklist"><p>Carregando...</p></main>;
-    if (error) return <main className="booklist"><p className="error">{error}</p></main>;
 
     return (
         <main className="booklist">
