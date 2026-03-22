@@ -86,6 +86,7 @@ EC3-RA1-PJBL/
 - React Router 7.13.1
 - Axios 1.13.6
 - React Toastify 11.0.5
+- Normalize.css 8.0.1
 
 ### Backend
 - Express 5.2.1
