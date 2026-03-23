@@ -76,7 +76,14 @@ export default function BookForm() {
                 toast.success("Livro cadastrado com sucesso!");
                 setBook(emptyBook);
             }
-        } catch {
+        } catch (error: unknown) {
+            if (error instanceof Error && "response" in error) {
+                const axiosError = error as { response?: { status: number } };
+                if (axiosError.response?.status === 409) {
+                    toast.warning("Este livro já está cadastrado.");
+                    return;
+                }
+            }
             toast.error("Erro ao salvar livro.");
         }
     };

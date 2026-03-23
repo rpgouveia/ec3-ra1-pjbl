@@ -16,6 +16,19 @@ export const findById = async (id: number) => {
     return rows[0] as Book | null;
 };
 
+export const findDuplicate = async (book: Book, excludeId?: number) => {
+    let query = "SELECT id FROM books WHERE title = ? AND `system` = ? AND `edition` = ?";
+    const params: (string | number | null)[] = [book.title, book.system, book.edition || null];
+
+    if (excludeId) {
+        query += " AND id != ?";
+        params.push(excludeId);
+    }
+
+    const [rows] = await database.query<RowDataPacket[]>(query, params);
+    return rows.length > 0;
+};
+
 export const create = async (book: Book) => {
     const [result] = await database.query<ResultSetHeader>(
         "INSERT INTO books (title, `system`, publisher, author, `edition`, `status`, notes) VALUES (?, ?, ?, ?, ?, ?, ?)",

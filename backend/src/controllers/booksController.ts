@@ -34,6 +34,12 @@ export const create = async (request: Request, response: Response) => {
             return;
         }
 
+        const duplicate = await booksService.findDuplicate(request.body);
+        if (duplicate) {
+            response.status(409).json({ error: "Este livro já está cadastrado." });
+            return;
+        }
+
         const id = await booksService.create(request.body);
         response.status(201).json({ id, message: "Livro cadastrado com sucesso." });
     } catch (error) {
@@ -43,6 +49,12 @@ export const create = async (request: Request, response: Response) => {
 
 export const update = async (request: Request, response: Response) => {
     try {
+        const duplicate = await booksService.findDuplicate(request.body, response.locals.id);
+        if (duplicate) {
+            response.status(409).json({ error: "Já existe outro livro com estes dados." });
+            return;
+        }
+
         const updated = await booksService.update(response.locals.id, request.body);
 
         if (!updated) {
