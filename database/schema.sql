@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS books (
   `edition` VARCHAR(50),
   `status` ENUM('Quero', 'Tenho', 'Lendo', 'Lido') DEFAULT 'Quero',
   notes TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE INDEX unique_book (title, `system`, `edition`)
 );
 
 INSERT INTO books (title, `system`, publisher, author, `edition`, `status`, notes, created_at) VALUES
