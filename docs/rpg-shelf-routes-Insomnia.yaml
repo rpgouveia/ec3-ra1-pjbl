@@ -2,14 +2,14 @@ type: collection.insomnia.rest/5.0
 schema_version: "5.1"
 name: EC3 RA1 PjBL - RPG SHELF
 meta:
-  id: wrk_bfa85b59ac5d4ac180145a5cbeebebed
-  created: 1774067805979
-  modified: 1774067837010
+  id: wrk_90e51e2be8af46b2a81a2b69d58f70fa
+  created: 1774293077684
+  modified: 1774293077684
   description: ""
 collection:
   - name: Books
     meta:
-      id: fld_42fe91aff4444839ad16f4c9c3426f9c
+      id: fld_a9f4ff9a484243ed95d7b2bbd67594a2
       created: 1774068951248
       modified: 1774068951248
       sortKey: -1774068951248
@@ -18,7 +18,7 @@ collection:
       - url: http://localhost:3001/books
         name: GET - Listar livros
         meta:
-          id: req_37c6441f4a194f5bba4373e4d876352d
+          id: req_c0b460970cdc41fe95b0e6bee404af74
           created: 1774068445772
           modified: 1774068957001
           isPrivate: false
@@ -41,7 +41,7 @@ collection:
       - url: http://localhost:3001/books/1
         name: GET - Buscar por ID
         meta:
-          id: req_b414589784e84af682d6841a140c1113
+          id: req_0e4f4172e2ab4f6aaed762e82e368cb8
           created: 1774068934690
           modified: 1774069635620
           isPrivate: false
@@ -64,9 +64,9 @@ collection:
       - url: http://localhost:3001/books
         name: POST - Cadastrar um Livro
         meta:
-          id: req_0da4050a56ce4bbcb51ed8f805a68883
+          id: req_c5247d22db164807b90cfd3ac4028320
           created: 1774114234534
-          modified: 1774114771613
+          modified: 1774293251788
           isPrivate: false
           description: ""
           sortKey: -1774114234534
@@ -75,13 +75,13 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "title": "Ordem Paranormal RPG",
-              "system": "Ordem Paranormal",
-              "publisher": "Jambô Editora",
-              "author": "Cellbit",
+              "title": "Fabula Ultima",
+              "system": "Fabula Ultima",
+              "publisher": "Need Games",
+              "author": "Emanuele Galletto",
               "edition": "1ª Edição",
               "status": "Quero",
-              "notes": "Sistema brasileiro de horror"
+              "notes": "RPG de fantasia japonesa inspirado em JRPGs"
             }
         headers:
           - name: Content-Type
@@ -101,7 +101,7 @@ collection:
       - url: http://localhost:3001/books
         name: POST - Cadastrar um Livro para Teste de Exclusão
         meta:
-          id: req_4da11ccc138e4ab7a66511a1a1dd789a
+          id: req_6fac0f669a694f83b6790d7092e3b775
           created: 1774114842652
           modified: 1774114920055
           isPrivate: false
@@ -138,7 +138,7 @@ collection:
       - url: http://localhost:3001/books/1
         name: PUT - Atualizar Livro
         meta:
-          id: req_0796334c718f4506b9957d9661ea3bd0
+          id: req_359ac0cc666447138afcb1f96395dc5d
           created: 1774114964607
           modified: 1774115060446
           isPrivate: false
@@ -172,12 +172,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3001/books/5
+      - url: http://localhost:3001/books/13
         name: DELETE - Remover Livro
         meta:
-          id: req_d5ceaab0502a4aa38efca81efa280cec
+          id: req_982c53cac47f4ade93c2e496de26f6b9
           created: 1774115099646
-          modified: 1774115160798
+          modified: 1774293308034
           isPrivate: false
           description: ""
           sortKey: -1774115099646
@@ -198,7 +198,7 @@ collection:
       - url: http://localhost:3001/books/abc
         name: "GET - Testar ID inválido: String"
         meta:
-          id: req_b450896ce0524bd0b22319fd02b2ff72
+          id: req_1af1d84c7eaf4d898b47cf863c75e215
           created: 1774115207626
           modified: 1774290994554
           isPrivate: false
@@ -221,7 +221,7 @@ collection:
       - url: http://localhost:3001/books/999
         name: "GET - Testar ID inválido: ID Inexistente"
         meta:
-          id: req_281bd08b16bc42fcae07ee8aa9bad2fe
+          id: req_196af1f67d114d73a193553bec938ec7
           created: 1774115280538
           modified: 1774290990102
           isPrivate: false
@@ -241,16 +241,53 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: http://localhost:3001/books
+        name: POST - Testar Livro já cadastrado
+        meta:
+          id: req_e9644a4f20e8474e88a1acfe8b84c6da
+          created: 1774293120683
+          modified: 1774293171736
+          isPrivate: false
+          description: ""
+          sortKey: -1774102915143.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "Ordem Paranormal RPG",
+              "system": "Ordem Paranormal",
+              "publisher": "Jambô Editora",
+              "author": "Cellbit",
+              "edition": "1ª Edição",
+              "status": "Quero",
+              "notes": "Sistema brasileiro de horror"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_0cb830109a5517dcb58966005ea59d777829723c
+    id: jar_d35a8a6cb3634840975b5289559da993
     created: 1774067805984
     modified: 1774067805984
 environments:
   name: Base Environment
   meta:
-    id: env_0cb830109a5517dcb58966005ea59d777829723c
+    id: env_c0b948334bcb4a118e698e56737610e2
     created: 1774067805983
     modified: 1774068253717
     isPrivate: false
