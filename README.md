@@ -13,6 +13,7 @@ RPG Shelf é uma aplicação para gerenciar sua coleção de livros de RPG. Orga
 - Visualização detalhada de cada livro
 - Edição de informações dos livros
 - Exclusão com confirmação
+- Validação contra livros duplicados
 
 ### Tecnologias
 
@@ -45,7 +46,8 @@ EC3-RA1-PJBL/
 ├── docs/
 │   ├── erd.png
 │   ├── ec3-ra1-pjbl.pdf
-│   └── planejamento-ec3.jpeg
+│   ├── planejamento-ec3.jpeg
+│   └── rpg-shelf-routes-insomnia.yaml
 ├── frontend/
 │   └── src/
 │       ├── components/
@@ -93,6 +95,16 @@ EC3-RA1-PJBL/
 - mysql2 3.20.0
 - dotenv 17.3.1
 - TypeScript 5.9.3
+
+## Testando a API
+
+Na pasta `docs/` há o arquivo `rpg-shelf-routes-insomnia.yaml` com todas as rotas configuradas. Para importar:
+
+1. Abra o Insomnia
+2. Clique em Import
+3. Selecione o arquivo `docs/rpg-shelf-routes-insomnia.yaml`
+
+A coleção inclui testes para todas as operações CRUD, validação de ID inválido e detecção de livros duplicados.
 
 ## Como Rodar o Projeto
 
@@ -166,6 +178,8 @@ A tabela `books` possui os seguintes campos:
 | status | ENUM | Quero, Tenho, Lendo, Lido |
 | notes | TEXT | Observações (opcional) |
 | created_at | TIMESTAMP | Data de criação automática |
+
+A tabela possui um índice UNIQUE em (title, system, edition) para evitar livros duplicados.
 
 ## Autor
 
