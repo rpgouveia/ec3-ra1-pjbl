@@ -1,0 +1,256 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: EC3 RA1 PjBL - RPG SHELF
+meta:
+  id: wrk_bfa85b59ac5d4ac180145a5cbeebebed
+  created: 1774067805979
+  modified: 1774067837010
+  description: ""
+collection:
+  - name: Books
+    meta:
+      id: fld_42fe91aff4444839ad16f4c9c3426f9c
+      created: 1774068951248
+      modified: 1774068951248
+      sortKey: -1774068951248
+      description: ""
+    children:
+      - url: http://localhost:3001/books
+        name: GET - Listar livros
+        meta:
+          id: req_37c6441f4a194f5bba4373e4d876352d
+          created: 1774068445772
+          modified: 1774068957001
+          isPrivate: false
+          description: ""
+          sortKey: -1774068956973
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/books/1
+        name: GET - Buscar por ID
+        meta:
+          id: req_b414589784e84af682d6841a140c1113
+          created: 1774068934690
+          modified: 1774069635620
+          isPrivate: false
+          description: ""
+          sortKey: -1774068956873
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/books
+        name: POST - Cadastrar um Livro
+        meta:
+          id: req_0da4050a56ce4bbcb51ed8f805a68883
+          created: 1774114234534
+          modified: 1774114771613
+          isPrivate: false
+          description: ""
+          sortKey: -1774114234534
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "Ordem Paranormal",
+              "system": "OP",
+              "author": "Cellbit",
+              "edition": "1ª Edição",
+              "status": "Quero",
+              "notes": "Sistema brasileiro de horror"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/books
+        name: POST - Cadastrar um Livro para Teste de Exclusão
+        meta:
+          id: req_4da11ccc138e4ab7a66511a1a1dd789a
+          created: 1774114842652
+          modified: 1774114920055
+          isPrivate: false
+          description: ""
+          sortKey: -1774091595753.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "Teste de Exclusão",
+              "system": "EC3",
+              "author": "Renato Gouveia",
+              "edition": "1ª Edição",
+              "status": "Quero",
+              "notes": "Cadastre este item para testar a exclusão"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/books/1
+        name: PUT - Atualizar Livro
+        meta:
+          id: req_0796334c718f4506b9957d9661ea3bd0
+          created: 1774114964607
+          modified: 1774115060446
+          isPrivate: false
+          description: ""
+          sortKey: -1774114964607
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "Player's Handbook",
+              "system": "D&D 5e",
+              "author": "Wizards of the Coast",
+              "edition": "5ª Edição",
+              "status": "Lido",
+              "notes": "Finalmente terminei de ler"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/books/5
+        name: DELETE - Remover Livro
+        meta:
+          id: req_d5ceaab0502a4aa38efca81efa280cec
+          created: 1774115099646
+          modified: 1774115160798
+          isPrivate: false
+          description: ""
+          sortKey: -1774115099646
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/books/abc
+        name: "GET - Testar ID inválido: String"
+        meta:
+          id: req_b450896ce0524bd0b22319fd02b2ff72
+          created: 1774115207626
+          modified: 1774290994554
+          isPrivate: false
+          description: ""
+          sortKey: -1774080276363.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/books/999
+        name: "GET - Testar ID inválido: ID Inexistente"
+        meta:
+          id: req_281bd08b16bc42fcae07ee8aa9bad2fe
+          created: 1774115280538
+          modified: 1774290990102
+          isPrivate: false
+          description: ""
+          sortKey: -1774074616668.125
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_0cb830109a5517dcb58966005ea59d777829723c
+    created: 1774067805984
+    modified: 1774067805984
+environments:
+  name: Base Environment
+  meta:
+    id: env_0cb830109a5517dcb58966005ea59d777829723c
+    created: 1774067805983
+    modified: 1774068253717
+    isPrivate: false
+  data:
+    RPG SHELF API:
+      base_url: http://localhost:3001
