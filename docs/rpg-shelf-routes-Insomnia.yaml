@@ -75,8 +75,9 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "title": "Ordem Paranormal",
-              "system": "OP",
+              "title": "Ordem Paranormal RPG",
+              "system": "Ordem Paranormal",
+              "publisher": "Jambô Editora",
               "author": "Cellbit",
               "edition": "1ª Edição",
               "status": "Quero",
@@ -113,6 +114,7 @@ collection:
             {
               "title": "Teste de Exclusão",
               "system": "EC3",
+              "publisher": "PUCPR",
               "author": "Renato Gouveia",
               "edition": "1ª Edição",
               "status": "Quero",
@@ -149,7 +151,8 @@ collection:
             {
               "title": "Player's Handbook",
               "system": "D&D 5e",
-              "author": "Wizards of the Coast",
+              "publisher": "Wizards of the Coast",
+              "author": "Jeremy Crawford",
               "edition": "5ª Edição",
               "status": "Lido",
               "notes": "Finalmente terminei de ler"
