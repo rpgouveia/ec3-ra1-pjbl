@@ -21,7 +21,10 @@ export default function BookList() {
             try {
                 const response = await getBooks();
                 setBooks(response.data);
-            } catch {
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    console.error(error.message);
+                }
                 toast.error("Erro ao carregar livros.");
             } finally {
                 setLoading(false);
