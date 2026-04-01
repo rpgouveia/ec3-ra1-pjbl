@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getBooks } from "../services/api";
 import type { Book } from "../types/book";
+import Spinner from "../components/Spinner";
 import "../styles/BookList.css";
 
 const ITEMS_PER_PAGE = 6;
@@ -59,7 +60,7 @@ export default function BookList() {
         currentPage * ITEMS_PER_PAGE
     );
 
-    if (loading) return <main className="booklist"><p>Carregando...</p></main>;
+    if (loading) return <main className="booklist"><Spinner message="Carregando livros..." /></main>;
 
     return (
         <main className="booklist">

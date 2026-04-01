@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getBookById, deleteBook } from "../services/api";
 import type { Book } from "../types/book";
+import Spinner from "../components/Spinner";
 import "../styles/BookDetails.css";
 
 export default function BookDetails() {
@@ -39,7 +40,7 @@ export default function BookDetails() {
         }
     };
 
-    if (loading) return <main className="bookdetails"><p>Carregando...</p></main>;
+    if (loading) return <main className="bookdetails"><Spinner message="Carregando livro..." /></main>;
     if (!book) return <main className="bookdetails"><p>Livro não encontrado.</p></main>;
 
     return (

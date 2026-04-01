@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 import { getBookById, createBook, updateBook } from "../services/api";
 import type { Book } from "../types/book";
+import Spinner from "../components/Spinner";
 import "../styles/BookForm.css";
 
 const STATUS_OPTIONS = ["Quero", "Tenho", "Lendo", "Lido"];
@@ -23,6 +25,7 @@ export default function BookForm() {
 
     const [book, setBook] = useState<Book>(emptyBook);
     const [loading, setLoading] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
     useEffect(() => {
@@ -68,6 +71,7 @@ export default function BookForm() {
         if (!validate()) return;
 
         try {
+            setSubmitting(true);
             if (isEditing) {
                 await updateBook(Number(id), book);
                 toast.success("Livro atualizado com sucesso!");
@@ -85,10 +89,12 @@ export default function BookForm() {
                 }
             }
             toast.error("Erro ao salvar livro.");
+        } finally {
+            setSubmitting(false);
         }
     };
 
-    if (loading) return <main className="bookform"><p>Carregando...</p></main>;
+    if (loading) return <main className="bookform"><Spinner message="Carregando livro..." /></main>;
 
     return (
         <main className="bookform">
@@ -103,6 +109,7 @@ export default function BookForm() {
                         value={book.title}
                         onChange={handleChange}
                         placeholder="Ex: Player's Handbook"
+                        disabled={submitting}
                     />
                     {fieldErrors.title && <span className="field-error">{fieldErrors.title}</span>}
                 </div>
@@ -115,6 +122,7 @@ export default function BookForm() {
                         value={book.system}
                         onChange={handleChange}
                         placeholder="Ex: D&D 5e"
+                        disabled={submitting}
                     />
                     {fieldErrors.system && <span className="field-error">{fieldErrors.system}</span>}
                 </div>
@@ -127,6 +135,7 @@ export default function BookForm() {
                         value={book.publisher}
                         onChange={handleChange}
                         placeholder="Ex: Wizards of the Coast"
+                        disabled={submitting}
                     />
                     {fieldErrors.publisher && <span className="field-error">{fieldErrors.publisher}</span>}
                 </div>
@@ -139,6 +148,7 @@ export default function BookForm() {
                         value={book.author}
                         onChange={handleChange}
                         placeholder="Ex: Jeremy Crawford"
+                        disabled={submitting}
                     />
                 </div>
 
@@ -151,6 +161,7 @@ export default function BookForm() {
                             value={book.edition}
                             onChange={handleChange}
                             placeholder="Ex: 5ª Edição"
+                            disabled={submitting}
                         />
                     </div>
 
@@ -161,6 +172,7 @@ export default function BookForm() {
                             name="status"
                             value={book.status}
                             onChange={handleChange}
+                            disabled={submitting}
                         >
                             {STATUS_OPTIONS.map((status) => (
                                 <option key={status} value={status}>
@@ -180,12 +192,20 @@ export default function BookForm() {
                         onChange={handleChange}
                         placeholder="Observações sobre o livro..."
                         rows={4}
+                        disabled={submitting}
                     />
                 </div>
 
                 <div className="form-actions">
-                    <button type="submit">
-                        {isEditing ? "Salvar Alterações" : "Cadastrar"}
+                    <button type="submit" disabled={submitting}>
+                        {submitting ? (
+                            <span className="btn-loading">
+                                <ClipLoader color="#0f0f0f" size={16} />
+                                Salvando...
+                            </span>
+                        ) : (
+                            isEditing ? "Salvar Alterações" : "Cadastrar"
+                        )}
                     </button>
                     <Link to="/books" className="form-cancel">Voltar</Link>
                 </div>

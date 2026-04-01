@@ -93,6 +93,12 @@
     color: #e0e0e0;
 }
 
+.btn-loading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 @media (min-width: 768px) {
     .bookform {
         padding: 32px;
