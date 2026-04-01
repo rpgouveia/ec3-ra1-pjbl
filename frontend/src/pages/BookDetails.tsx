@@ -44,77 +44,84 @@ export default function BookDetails() {
     if (!book) return <main className="bookdetails"><p>Livro não encontrado.</p></main>;
 
     return (
-        <main className="bookdetails">
-            <Link to="/books" className="bookdetails-back">← Voltar para Estante</Link>
+        <main className="bookdetails" aria-label="Detalhes do livro">
+            <Link to="/books" className="bookdetails-back" aria-label="Voltar para estante">
+                ← Voltar para Estante
+            </Link>
 
-            <div className="bookdetails-card">
+            <article className="bookdetails-card">
                 <span className={`book-status status-${book.status?.toLowerCase()}`}>
                     {book.status}
                 </span>
 
                 <h1>{book.title}</h1>
 
-                <div className="bookdetails-info">
-                    <div className="bookdetails-field">
-                        <span className="field-label">Sistema</span>
-                        <span className="field-value">{book.system}</span>
-                    </div>
+                <section className="bookdetails-info" aria-label="Informações do livro">
+                    <dl>
+                        <div className="bookdetails-field">
+                            <dt className="field-label">Sistema</dt>
+                            <dd className="field-value">{book.system}</dd>
+                        </div>
 
-                    <div className="bookdetails-field">
-                        <span className="field-label">Editora</span>
-                        <span className="field-value">{book.publisher}</span>
-                    </div>
+                        <div className="bookdetails-field">
+                            <dt className="field-label">Editora</dt>
+                            <dd className="field-value">{book.publisher}</dd>
+                        </div>
 
-                    <div className="bookdetails-field">
-                        <span className="field-label">Autor</span>
-                        <span className="field-value">{book.author || "—"}</span>
-                    </div>
+                        <div className="bookdetails-field">
+                            <dt className="field-label">Autor</dt>
+                            <dd className="field-value">{book.author || "—"}</dd>
+                        </div>
 
-                    <div className="bookdetails-field">
-                        <span className="field-label">Edição</span>
-                        <span className="field-value">{book.edition || "—"}</span>
-                    </div>
+                        <div className="bookdetails-field">
+                            <dt className="field-label">Edição</dt>
+                            <dd className="field-value">{book.edition || "—"}</dd>
+                        </div>
 
-                    <div className="bookdetails-field">
-                        <span className="field-label">Adicionado em</span>
-                        <span className="field-value">
-                            {new Date(book.created_at ?? "").toLocaleDateString("pt-BR")}
-                        </span>
-                    </div>
-                </div>
+                        <div className="bookdetails-field">
+                            <dt className="field-label">Adicionado em</dt>
+                            <dd className="field-value">
+                                <time dateTime={book.created_at}>
+                                    {new Date(book.created_at ?? "").toLocaleDateString("pt-BR")}
+                                </time>
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
 
                 {book.notes && (
-                    <div className="bookdetails-notes">
+                    <section className="bookdetails-notes" aria-label="Notas sobre o livro">
                         <span className="field-label">Notas</span>
                         <p>{book.notes}</p>
-                    </div>
+                    </section>
                 )}
 
-                <div className="bookdetails-actions">
-                    <Link to={`/books/${book.id}/edit`} className="btn-edit">
+                <footer className="bookdetails-actions">
+                    <Link to={`/books/${book.id}/edit`} className="btn-edit" aria-label={`Editar ${book.title}`}>
                         Editar
                     </Link>
                     <button
                         className="btn-delete"
                         onClick={() => setShowConfirm(true)}
+                        aria-label={`Excluir ${book.title}`}
                     >
                         Excluir
                     </button>
-                </div>
-            </div>
+                </footer>
+            </article>
 
             {showConfirm && (
-                <div className="confirm-overlay">
+                <div className="confirm-overlay" role="dialog" aria-modal="true" aria-label="Confirmar exclusão">
                     <div className="confirm-dialog">
                         <p>Tem certeza que deseja excluir <strong>{book.title}</strong>?</p>
-                        <div className="confirm-actions">
+                        <footer className="confirm-actions">
                             <button className="btn-confirm" onClick={handleDelete}>
                                 Sim, excluir
                             </button>
-                            <button className="btn-cancel" onClick={() => setShowConfirm(false)}>
+                            <button className="btn-cancel" onClick={() => setShowConfirm(false)} autoFocus>
                                 Cancelar
                             </button>
-                        </div>
+                        </footer>
                     </div>
                 </div>
             )}

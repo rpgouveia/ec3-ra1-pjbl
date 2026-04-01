@@ -63,25 +63,27 @@ export default function BookList() {
     if (loading) return <main className="booklist"><Spinner message="Carregando livros..." /></main>;
 
     return (
-        <main className="booklist">
-            <div className="booklist-header">
+        <main className="booklist" aria-label="Estante de livros">
+            <header className="booklist-header">
                 <h1>Estante</h1>
-                <Link to="/books/new" className="booklist-add">+ Novo Livro</Link>
-            </div>
+                <Link to="/books/new" className="booklist-add" role="button">+ Novo Livro</Link>
+            </header>
 
-            <div className="booklist-filters">
+            <section className="booklist-filters" aria-label="Filtros de busca">
                 <input
                     type="text"
                     placeholder="Buscar por título..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="booklist-search"
+                    aria-label="Buscar livro por título"
                 />
 
                 <div className="booklist-options">
                     <select
                         value={statusFilter}
                         onChange={(e) => setStatusFilter(e.target.value)}
+                        aria-label="Filtrar por status"
                     >
                         {STATUS_OPTIONS.map((status) => (
                             <option key={status} value={status}>
@@ -93,52 +95,56 @@ export default function BookList() {
                     <select
                         value={sortOrder}
                         onChange={(e) => setSortOrder(e.target.value as "desc" | "asc")}
+                        aria-label="Ordenar por data"
                     >
                         <option value="desc">Mais recentes</option>
                         <option value="asc">Mais antigos</option>
                     </select>
                 </div>
-            </div>
+            </section>
 
             {paginatedBooks.length === 0 ? (
                 <p className="booklist-empty">Nenhum livro encontrado.</p>
             ) : (
-                <div className="booklist-grid">
+                <section className="booklist-grid" aria-label="Lista de livros">
                     {paginatedBooks.map((book) => (
-                        <Link
-                            to={`/books/${book.id}`}
-                            key={book.id}
-                            className="book-card"
-                        >
-                            <span className={`book-status status-${book.status?.toLowerCase()}`}>
-                                {book.status}
-                            </span>
-                            <h2 className="book-title">{book.title}</h2>
-                            <p className="book-system">{book.system}</p>
-                            <p className="book-publisher">{book.publisher}</p>
-                        </Link>
+                        <article key={book.id} className="book-card">
+                            <Link
+                                to={`/books/${book.id}`}
+                                aria-label={`Ver detalhes de ${book.title}`}
+                            >
+                                <span className={`book-status status-${book.status?.toLowerCase()}`}>
+                                    {book.status}
+                                </span>
+                                <h2 className="book-title">{book.title}</h2>
+                                <p className="book-system">{book.system}</p>
+                                <p className="book-publisher">{book.publisher}</p>
+                            </Link>
+                        </article>
                     ))}
-                </div>
+                </section>
             )}
 
             {totalPages > 1 && (
-                <div className="booklist-pagination">
+                <nav className="booklist-pagination" aria-label="Paginação">
                     <button
                         onClick={() => setCurrentPage((p) => p - 1)}
                         disabled={currentPage === 1}
+                        aria-label="Página anterior"
                     >
                         Anterior
                     </button>
-                    <span>
+                    <span aria-live="polite">
                         {currentPage} de {totalPages}
                     </span>
                     <button
                         onClick={() => setCurrentPage((p) => p + 1)}
                         disabled={currentPage === totalPages}
+                        aria-label="Próxima página"
                     >
                         Próxima
                     </button>
-                </div>
+                </nav>
             )}
         </main>
     );

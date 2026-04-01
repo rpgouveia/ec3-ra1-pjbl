@@ -91,6 +91,14 @@
     transition: border-color 0.2s;
 }
 
+.book-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .book-card:hover {
     border-color: #555;
 }

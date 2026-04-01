@@ -37,22 +37,24 @@
     margin-bottom: 20px;
 }
 
-.bookdetails-field {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.bookdetails-info dl {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 0;
 }
 
-.field-label {
+.bookdetails-info dt {
     font-size: 11px;
     color: #666;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.field-value {
+.bookdetails-info dd {
     font-size: 14px;
     color: #e0e0e0;
+    margin: 0;
 }
 
 .bookdetails-notes {
@@ -192,11 +194,16 @@
         margin-bottom: 24px;
     }
 
-    .field-label {
+    .bookdetails-info dl {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .bookdetails-info dt {
         font-size: 12px;
     }
 
-    .field-value {
+    .bookdetails-info dd {
         font-size: 15px;
     }
 
