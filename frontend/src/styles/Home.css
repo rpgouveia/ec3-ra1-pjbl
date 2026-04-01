@@ -3,21 +3,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 57px);
+    min-height: calc(100vh - 85px);
     text-align: center;
-    padding: 32px;
-    gap: 20px;
+    padding: 24px 16px;
+    gap: 16px;
 }
 
 .home-title {
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -1px;
 }
 
 .home-description {
-    font-size: 16px;
+    font-size: 14px;
     color: #9a9a9a;
     max-width: 480px;
     line-height: 1.6;
@@ -25,13 +25,13 @@
 
 .home-button {
     display: inline-block;
-    margin-top: 12px;
-    padding: 12px 32px;
+    margin-top: 8px;
+    padding: 12px 28px;
     background: #e0e0e0;
     color: #0f0f0f;
     text-decoration: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     transition: background 0.2s;
 }
@@ -43,6 +43,26 @@
 .home-footer {
     position: absolute;
     bottom: 24px;
-    font-size: 13px;
+    font-size: 12px;
     color: #555;
+}
+
+@media (min-width: 768px) {
+    .home {
+        min-height: calc(100vh - 57px);
+        padding: 32px;
+        gap: 20px;
+    }
+
+    .home-title {
+        font-size: 48px;
+    }
+
+    .home-description {
+        font-size: 16px;
+    }
+
+    .home-footer {
+        font-size: 13px;
+    }
 }

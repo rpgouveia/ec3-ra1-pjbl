@@ -9,6 +9,7 @@ body {
     background: #0f0f0f;
     color: #e0e0e0;
     min-height: 100vh;
+    font-size: 14px;
 }
 
 a {
@@ -45,4 +46,10 @@ textarea::placeholder {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #3a3a3a;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
 }

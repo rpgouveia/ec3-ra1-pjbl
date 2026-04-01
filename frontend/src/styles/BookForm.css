@@ -1,13 +1,13 @@
 .bookform {
     max-width: 600px;
     margin: 0 auto;
-    padding: 32px;
+    padding: 24px 16px;
 }
 
 .bookform h1 {
-    font-size: 32px;
+    font-size: 24px;
     color: #ffffff;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .form-group {
@@ -55,7 +55,8 @@
 
 .form-row {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 0;
 }
 
 .form-actions {
@@ -90,4 +91,20 @@
 
 .form-cancel:hover {
     color: #e0e0e0;
+}
+
+@media (min-width: 768px) {
+    .bookform {
+        padding: 32px;
+    }
+
+    .bookform h1 {
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+
+    .form-row {
+        flex-direction: row;
+        gap: 16px;
+    }
 }
