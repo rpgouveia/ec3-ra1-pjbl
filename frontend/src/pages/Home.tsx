@@ -3,7 +3,7 @@ import "../styles/Home.css";
 
 export default function Home() {
     return (
-        <main className="home">
+        <main className="home" aria-label="Página inicial">
             <h1 className="home-title">RPG Shelf</h1>
             <p className="home-description">
                 Gerencie sua coleção de livros de RPG. Organize, catalogue e
