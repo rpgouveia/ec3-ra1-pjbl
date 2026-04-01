@@ -180,13 +180,53 @@
 
 @media (min-width: 768px) {
     .booklist {
-        padding: 32px;
+        padding: 20px 24px;
     }
 
     .booklist-header {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .booklist-header h1 {
+        font-size: 28px;
+    }
+
+    .booklist-filters {
+        margin-bottom: 16px;
+    }
+
+    .booklist-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+    }
+
+    .book-card {
+        padding: 14px;
+        gap: 6px;
+    }
+
+    .book-title {
+        font-size: 16px;
+    }
+
+    .booklist-options select {
+        flex: none;
+    }
+
+    .booklist-pagination {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .booklist {
+        padding: 32px;
+    }
+
+    .booklist-header {
         margin-bottom: 24px;
     }
 
@@ -194,21 +234,21 @@
         font-size: 32px;
     }
 
+    .booklist-filters {
+        margin-bottom: 24px;
+    }
+
     .booklist-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 16px;
     }
 
     .book-card {
         padding: 20px;
+        gap: 8px;
     }
 
     .book-title {
         font-size: 18px;
-    }
-
-    .booklist-options select {
-        flex: none;
     }
 
     .booklist-pagination {
