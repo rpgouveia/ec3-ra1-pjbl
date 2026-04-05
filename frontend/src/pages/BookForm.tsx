@@ -65,7 +65,7 @@ export default function BookForm() {
         setFieldErrors((prev) => ({ ...prev, [name]: "" }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.SubmitEvent) => {
         e.preventDefault();
 
         if (!validate()) return;
