@@ -14,6 +14,8 @@ RPG Shelf é uma aplicação para gerenciar sua coleção de livros de RPG. Orga
 - Edição de informações dos livros
 - Exclusão com confirmação
 - Validação contra livros duplicados
+- Design responsivo (mobile-first)
+- Acessibilidade: HTML semântico, atributos ARIA e contraste em conformidade com WCAG 2.0 AA
 
 ### Tecnologias
 
