@@ -139,17 +139,17 @@
 
 .book-system {
     font-size: 13px;
-    color: #888;
+    color: #999;
 }
 
 .book-publisher {
     font-size: 12px;
-    color: #666;
+    color: #999;
 }
 
 .booklist-empty {
     text-align: center;
-    color: #666;
+    color: #999;
     padding: 32px;
 }
 
@@ -183,7 +183,7 @@
 
 .booklist-pagination span {
     font-size: 14px;
-    color: #888;
+    color: #999;
 }
 
 @media (min-width: 768px) {
