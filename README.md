@@ -88,7 +88,7 @@ EC3-RA1-PJBL/
 - TypeScript 5.9.3
 - Vite 8.0.1
 - React Router 7.13.1
-- Axios 1.13.6
+- Axios 1.14.0
 - React Toastify 11.0.5
 - Normalize.css 8.0.1
 
