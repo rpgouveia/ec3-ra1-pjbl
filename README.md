@@ -46,30 +46,33 @@ EC3-RA1-PJBL/
 ├── database/
 │   └── schema.sql
 ├── docs/
-│   ├── erd.png
 │   ├── ec3-ra1-pjbl.pdf
+│   ├── ERD.png
 │   ├── planejamento-ec3.jpeg
 │   └── rpg-shelf-routes-insomnia.yaml
 ├── frontend/
 │   └── src/
 │       ├── components/
-│       │   └── Header.tsx
+│       │   ├── Header.tsx
+│       │   └── Spinner.tsx
 │       ├── pages/
-│       │   ├── Home.tsx
-│       │   ├── BookList.tsx
+│       │   ├── BookDetails.tsx
 │       │   ├── BookForm.tsx
-│       │   └── BookDetails.tsx
+│       │   ├── BookList.tsx
+│       │   └── Home.tsx
 │       ├── services/
 │       │   └── api.ts
 │       ├── styles/
-│       │   ├── index.css
+│       │   ├── BookDetails.css
+│       │   ├── BookForm.css
+│       │   ├── BookList.css
 │       │   ├── Header.css
 │       │   ├── Home.css
-│       │   ├── BookList.css
-│       │   ├── BookForm.css
-│       │   └── BookDetails.css
+│       │   ├── Index.css
+│       │   └── Spinner.css
 │       ├── types/
-│       │   └── book.ts
+│       │   ├── book.ts
+│       │   └── spinner.ts
 │       ├── App.tsx
 │       └── main.tsx
 └── README.md
