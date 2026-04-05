@@ -46,7 +46,7 @@
 
 .bookdetails-info dt {
     font-size: 11px;
-    color: #666;
+    color: #999;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -95,7 +95,7 @@
 .btn-delete {
     padding: 10px 24px;
     background: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
+    color: #f87171;
     border: 1px solid rgba(239, 68, 68, 0.2);
     border-radius: 8px;
     font-size: 14px;
