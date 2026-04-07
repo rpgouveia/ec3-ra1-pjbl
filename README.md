@@ -160,29 +160,29 @@ O frontend estará disponível em `http://localhost:5173`.
 
 ## Endpoints da API
 
-| Método | Rota | Descrição |
-|--------|------|-----------|
-| GET | /books | Lista todos os livros |
-| GET | /books/:id | Busca um livro por ID |
-| POST | /books | Cadastra um novo livro |
-| PUT | /books/:id | Atualiza um livro existente |
-| DELETE | /books/:id | Remove um livro |
+| Método | Rota       | Descrição                   |
+|--------|------------|-----------------------------|
+| GET    | /books     | Lista todos os livros       |
+| GET    | /books/:id | Busca um livro por ID       |
+| POST   | /books     | Cadastra um novo livro      |
+| PUT    | /books/:id | Atualiza um livro existente |
+| DELETE | /books/:id | Remove um livro             |
 
 ## Banco de Dados
 
 A tabela `books` possui os seguintes campos:
 
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| id | INT (PK) | Identificador único, auto incremento |
-| title | VARCHAR(255) | Título do livro (obrigatório) |
-| system | VARCHAR(100) | Sistema de RPG (obrigatório) |
-| publisher | VARCHAR(255) | Editora (obrigatório) |
-| author | VARCHAR(255) | Autor (opcional) |
-| edition | VARCHAR(50) | Edição (opcional) |
-| status | ENUM | Quero, Tenho, Lendo, Lido |
-| notes | TEXT | Observações (opcional) |
-| created_at | TIMESTAMP | Data de criação automática |
+| Campo      | Tipo         | Descrição                            |
+|------------|--------------|--------------------------------------|
+| id         | INT (PK)     | Identificador único, auto incremento |
+| title      | VARCHAR(255) | Título do livro (obrigatório)        |
+| system     | VARCHAR(100) | Sistema de RPG (obrigatório)         |
+| publisher  | VARCHAR(255) | Editora (obrigatório)                |
+| author     | VARCHAR(255) | Autor (opcional)                     |
+| edition    | VARCHAR(50)  | Edição (opcional)                    |
+| status     | ENUM         | Quero, Tenho, Lendo, Lido            |
+| notes      | TEXT         | Observações (opcional)               |
+| created_at | TIMESTAMP    | Data de criação automática           |
 
 A tabela possui um índice UNIQUE em (title, system, edition) para evitar livros duplicados.
 
