@@ -51,7 +51,7 @@ export default function BookForm() {
 
         if (!book.title.trim()) errors.title = "Título é obrigatório.";
         if (!book.system.trim()) errors.system = "Sistema é obrigatório.";
-        if (!book.publisher.trim()) errors.publisher = "Editora é obrigatória.";
+        if (!book.edition.trim()) errors.edition = "Edição é obrigatória.";
 
         setFieldErrors(errors);
         return Object.keys(errors).length === 0;
@@ -133,18 +133,14 @@ export default function BookForm() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="publisher">Editora *</label>
+                        <label htmlFor="publisher">Editora</label>
                         <input
                             id="publisher"
                             name="publisher"
                             value={book.publisher}
                             onChange={handleChange}
                             placeholder="Ex: Wizards of the Coast"
-                            aria-required="true"
-                            aria-invalid={!!fieldErrors.publisher}
-                            aria-describedby={fieldErrors.publisher ? "publisher-error" : undefined}
                         />
-                        {fieldErrors.publisher && <span className="field-error" id="publisher-error" role="alert">{fieldErrors.publisher}</span>}
                     </div>
 
                     <div className="form-group">
@@ -160,14 +156,18 @@ export default function BookForm() {
 
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="edition">Edição</label>
+                            <label htmlFor="edition">Edição *</label>
                             <input
                                 id="edition"
                                 name="edition"
                                 value={book.edition}
                                 onChange={handleChange}
                                 placeholder="Ex: 5ª Edição"
+                                aria-required="true"
+                                aria-invalid={!!fieldErrors.edition}
+                                aria-describedby={fieldErrors.edition ? "edition-error" : undefined}
                             />
+                            {fieldErrors.edition && <span className="field-error" id="edition-error" role="alert">{fieldErrors.edition}</span>}
                         </div>
 
                         <div className="form-group">
