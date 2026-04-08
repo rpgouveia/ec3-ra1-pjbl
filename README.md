@@ -177,9 +177,9 @@ A tabela `books` possui os seguintes campos:
 | id         | INT (PK)     | Identificador único, auto incremento |
 | title      | VARCHAR(255) | Título do livro (obrigatório)        |
 | system     | VARCHAR(100) | Sistema de RPG (obrigatório)         |
-| publisher  | VARCHAR(255) | Editora (obrigatório)                |
+| publisher  | VARCHAR(255) | Editora (opcional)                   |
 | author     | VARCHAR(255) | Autor (opcional)                     |
-| edition    | VARCHAR(50)  | Edição (opcional)                    |
+| edition    | VARCHAR(50)  | Edição (obrigatório)                 |
 | status     | ENUM         | Quero, Tenho, Lendo, Lido            |
 | notes      | TEXT         | Observações (opcional)               |
 | created_at | TIMESTAMP    | Data de criação automática           |
