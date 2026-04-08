@@ -27,10 +27,10 @@ export const getById = async (request: Request, response: Response) => {
 
 export const create = async (request: Request, response: Response) => {
     try {
-        const { title, system, publisher } = request.body;
+        const { title, system, edition } = request.body;
 
-        if (!title || !system || !publisher) {
-            response.status(400).json({ error: "Campos title, system e publisher são obrigatórios." });
+        if (!title || !system || !edition) {
+            response.status(400).json({ error: "Campos title, system e edition são obrigatórios." });
             return;
         }
 
