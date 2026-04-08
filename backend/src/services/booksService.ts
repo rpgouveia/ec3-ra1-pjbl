@@ -33,12 +33,12 @@ export const create = async (book: Book) => {
     const [result] = await database.query<ResultSetHeader>(
         "INSERT INTO books (title, `system`, publisher, author, `edition`, `status`, notes) VALUES (?, ?, ?, ?, ?, ?, ?)",
         [
-            book.title, 
-            book.system, 
-            book.publisher, 
-            book.author || null, 
-            book.edition || null, 
-            book.status || "Quero", 
+            book.title,
+            book.system,
+            book.publisher || null,
+            book.author || null,
+            book.edition,
+            book.status || "Quero",
             book.notes || null
         ]
     );
