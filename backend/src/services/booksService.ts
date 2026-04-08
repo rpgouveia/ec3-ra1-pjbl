@@ -49,13 +49,13 @@ export const update = async (id: number, book: Book) => {
     const [result] = await database.query<ResultSetHeader>(
         "UPDATE books SET title = ?, `system` = ?, publisher = ?, author = ?, `edition` = ?, `status` = ?, notes = ? WHERE id = ?",
         [
-            book.title, 
-            book.system, 
-            book.publisher,
-            book.author || null, 
-            book.edition || null, 
-            book.status || null, 
-            book.notes || null, 
+            book.title,
+            book.system,
+            book.publisher || null,
+            book.author || null,
+            book.edition,
+            book.status || null,
+            book.notes || null,
             id
         ]
     );
